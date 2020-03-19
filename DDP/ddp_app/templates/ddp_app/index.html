@@ -1,0 +1,31 @@
+{% extends 'ddp_app/base.html' %}
+
+{% load static %}
+
+{% block meta %}
+<meta name="description" content="">
+{% endblock %}
+
+{% block title %}
+<title>Django Default App</title>
+{% endblock %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'ddp_app/css/index.css' %}">
+{% endblock %}
+
+{% block main %}
+<div id="index1">
+  <h1><span style="color:#2b2819; border-bottom:dashed;">DJANGO</span></h1>
+  <img style="max-height:340px;" class="img-fluid" src="{% static 'ddp_app/material/index/django-ignite.gif' %}" alt="">
+  <h2 style="border-top:dashed;"><span style="color:#2b2819;">DEFAULT APP</span></h2>
+</div>
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
