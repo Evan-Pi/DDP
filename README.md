@@ -1,0 +1,2 @@
+# DDP
+Django Default Project 
