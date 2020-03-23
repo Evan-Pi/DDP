@@ -6,8 +6,6 @@ Django Project. It also contains a python script that gives you the ability
 to rename the project as well as the prebuilt app that you will find inside the
 project.
 
-![Image of Yaktocat](https://drive.google.com/uc?id=1c6j39OHtAsThaStzI4WOvSHo6Vsa-ua2)
-
 ## Installation instructions:
 
 #### Clone or download the repository
