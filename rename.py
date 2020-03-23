@@ -3,11 +3,10 @@ import subprocess
 import shutil
 import os
 
-
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME PROJECT
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME PROJECT ↓
 current_project_name = input('Enter current project name : ')
 
-
+# Validate project name through django back end ↓
 project_name = input('Enter new project name:')
 cmd = f'django-admin startproject {project_name}'
 returned_value = subprocess.call(cmd, shell=True)
@@ -20,11 +19,12 @@ else:
     print('Project name accepted')
 
 shutil.rmtree(project_name)
+# Validate project name through django back end ↑
 
 os.rename(current_project_name, project_name)
 os.chdir(project_name)
 
-# MANAGE.PY
+# MODIFY MANAGE.PY
 with open("manage.py",'r') as f:
     lines = f.readlines()
     new_lines = []
@@ -39,7 +39,7 @@ with open("manage.py",'r') as f:
         for l in new_lines:
             f.write(l)
 
-# WSGI.PY
+# MODIFY WSGI.PY
 with open(f"{current_project_name}/wsgi.py",'r') as f:
     lines = f.readlines()
     new_lines = []
@@ -58,7 +58,7 @@ with open(f"{current_project_name}/wsgi.py",'r') as f:
             f.write(l)
 
 
-# ASGI.PY
+# MODIFY ASGI.PY
 with open(f"{current_project_name}/asgi.py",'r') as f:
     lines = f.readlines()
     new_lines = []
@@ -76,7 +76,7 @@ with open(f"{current_project_name}/asgi.py",'r') as f:
         for l in new_lines:
             f.write(l)
 
-# SETTINGS.PY
+# MODIFY SETTINGS.PY
 with open(f"{current_project_name}/settings.py",'r') as f:
     lines = f.readlines()
     new_lines = []
@@ -113,10 +113,11 @@ with open(f"{current_project_name}/urls.py",'r') as f:
             f.write(l)
 
 os.rename(current_project_name, project_name)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME PROJECT ↑
 
-#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME APP
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME APP ↓
 current_app_name = input('Enter current app name : ')
-
+# Validate app name through django back end ↓
 app_name = input('Enter new app name:')
 cmd = f'python manage.py startapp {app_name}'
 returned_value = subprocess.call(cmd, shell=True)
@@ -129,8 +130,9 @@ else:
     print('App name accepted')
 
 shutil.rmtree(app_name)
+# Validate app name through django back end ↑
 
-# SETTINGS.PY
+# MODIFY SETTINGS.PY
 with open(f"{project_name}/settings.py",'r') as f:
     lines = f.readlines()
     new_lines = []
@@ -145,7 +147,7 @@ with open(f"{project_name}/settings.py",'r') as f:
         for l in new_lines:
             f.write(l)
 
-# URLS.PY
+# MODIFY URLS.PY
 with open(f"{project_name}/urls.py",'r') as f:
     lines = f.readlines()
     new_lines = []
@@ -163,7 +165,7 @@ with open(f"{project_name}/urls.py",'r') as f:
 os.rename(current_app_name, app_name)
 os.chdir(app_name)
 
-# VIEWS.PY
+# MODIFY VIEWS.PY
 with open('views.py','r') as f:
     lines = f.readlines()
     new_lines = []
@@ -178,7 +180,7 @@ with open('views.py','r') as f:
         for l in new_lines:
             f.write(l)
 
-# APPS.PY
+# MODIFY APPS.PY
 with open('apps.py','r') as f:
     lines = f.readlines()
     new_lines = []
@@ -201,7 +203,7 @@ os.chdir('templates')
 os.rename(current_app_name, app_name)
 os.chdir(app_name)
 
-# BASE.HTML
+# MODIFY BASE.HTML
 with open('base.html','r') as f:
     lines = f.readlines()
     new_lines = []
@@ -216,7 +218,7 @@ with open('base.html','r') as f:
         for l in new_lines:
             f.write(l)
 
-# INDEX.HTML
+# MODIFY INDEX.HTML
 with open('index.html','r') as f:
     lines = f.readlines()
     new_lines = []
@@ -233,3 +235,4 @@ with open('index.html','r') as f:
     with open('index.html','w') as f:
         for l in new_lines:
             f.write(l)
+#+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME APP ↑
