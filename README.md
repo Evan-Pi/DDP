@@ -6,8 +6,6 @@ Django Project. It also contains a python script that gives you the ability
 to rename the project as well as the prebuilt app that you will find inside the
 project.
 
-![Save time with this default django project](https://drive.google.com/uc?id=1c6j39OHtAsThaStzI4WOvSHo6Vsa-ua2)
-
 ### Installation instructions:
 
 ### Clone or download the repository
@@ -17,6 +15,7 @@ virtualenv virtual_environment_name (requires virtualenv library - pip install v
 
 ### Activate the virtual environment
 Windows terminal command : virtual_environment_name\Scripts\activate
+
 Linux terminal command : source ./virtual_environment_name/bin/activate
 
 ### Install the dependencies via the requirements.txt file.
