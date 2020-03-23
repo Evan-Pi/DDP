@@ -30,6 +30,9 @@ Current app name : ddp_app
 
 ### Rename steps
 Enter current project name : DDP
+
 Enter new project name: your_project_name
+
 Enter current app name : ddp_app
+
 Enter new app name: your_app_name
