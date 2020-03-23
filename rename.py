@@ -1,23 +1,28 @@
 import string
+import subprocess
+import shutil
 import os
 
 
-valid_chars = string.ascii_letters + string.digits + '_'
-
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME PROJECT
-def ProjectName():
-    project_name = input('Enter your new project name : ')
-    while( (project_name[0].isdigit()) or (False in [c in valid_chars for c in project_name]) ):
-        error_message = f'\nProject name must not begin with a digit or contain characters other that letters,digits and underscores:\nEnter your new project name again:'
-        project_name = input(error_message)
-    return project_name
-
 current_project_name = input('Enter current project name : ')
-project_name = ProjectName()
+
+
+project_name = input('Enter new project name:')
+cmd = f'django-admin startproject {project_name}'
+returned_value = subprocess.call(cmd, shell=True)
+
+while returned_value == 1:
+    project_name = input('Enter new project name again:')
+    cmd = f'django-admin startproject {project_name}'
+    returned_value = subprocess.call(cmd, shell=True)
+else:
+    print('Project name accepted')
+
+shutil.rmtree(project_name)
 
 os.rename(current_project_name, project_name)
 os.chdir(project_name)
-
 
 # MANAGE.PY
 with open("manage.py",'r') as f:
@@ -110,15 +115,20 @@ with open(f"{current_project_name}/urls.py",'r') as f:
 os.rename(current_project_name, project_name)
 
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++RENAME APP
-def appName():
-    app_name = input('Enter your new app name : ')
-    while( (app_name[0].isdigit()) or (False in [c in valid_chars for c in app_name]) ):
-        error_message = f'\nApp name must not begin with a digit or contain characters other that letters,digits and underscores:\nEnter your new app name again:'
-        app_name = input(error_message)
-    return app_name
-
 current_app_name = input('Enter current app name : ')
-app_name = appName()
+
+app_name = input('Enter new app name:')
+cmd = f'python manage.py startapp {app_name}'
+returned_value = subprocess.call(cmd, shell=True)
+
+while returned_value == 1:
+    app_name = input('Enter new app name again:')
+    cmd = f'python manage.py startapp {app_name}'
+    returned_value = subprocess.call(cmd, shell=True)
+else:
+    print('App name accepted')
+
+shutil.rmtree(app_name)
 
 # SETTINGS.PY
 with open(f"{project_name}/settings.py",'r') as f:
