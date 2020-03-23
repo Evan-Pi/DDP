@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block title %}
-<title>Django Default App</title>
+<title>DDP</title>
 {% endblock %}
 
 {% block links %}
@@ -15,11 +15,14 @@
 {% endblock %}
 
 {% block main %}
+{% include 'ddp_app/sidebar.html' %}
 <div id="index1">
   <div class="container">
-    <h2><span style="color:#0c4b33;">DJANGO PROJECT : </span><span style="color:#44b78b;">DDP</span></h2>
+    <h2 class="d-none d-md-block"><span style="color:#0c4b33;">DJANGO PROJECT : </span><span style="color:#44b78b;">DDP</span></h2>
+    <h3 class="d-md-none"><span style="color:#0c4b33;">DJANGO PROJECT : </span><span style="color:#44b78b;"><br>DDP</span></h3>
     <hr>
-    <h4><span style="color:#0c4b33;">APPLICATION : </span><span style="color:#44b78b;">ddp_app</span></h4>
+    <h4 class="d-none d-md-block"><span style="color:#0c4b33;">APPLICATION : </span><span style="color:#44b78b;">ddp_app</span></h4>
+    <h5 class="d-md-none"><span style="color:#0c4b33;">APPLICATION : </span><span style="color:#44b78b;"><br>ddp_app</span></h5>
   </div>
 </div>
 {% endblock %}
@@ -29,5 +32,5 @@
 {% endblock %}
 
 {% block footer %}
-
+{% include 'ddp_app/footer.html' %}
 {% endblock %}
