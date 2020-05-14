@@ -19,7 +19,7 @@ $(document).ready(function() {
     if ($(window).scrollTop() < 172) {
       $('#pageUp').hide();
     } else {
-      $('#pageUp').fadeIn(600);
+      $('#pageUp').fadeIn(600).css({'display':'flex'});
     }
   });
 
